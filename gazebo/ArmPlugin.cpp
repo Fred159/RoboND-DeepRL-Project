@@ -50,8 +50,8 @@
 /
 */
 // ming changed
-#define REWARD_WIN  30.0f
-#define REWARD_LOSS -100.0f
+#define REWARD_WIN  10.0f
+#define REWARD_LOSS -10.0f
 
 // --
 #define alpha 0.3
@@ -306,7 +306,7 @@ void ArmPlugin::onCollisionMsg(ConstContactsPtr &contacts)
 
 		if (collisionCheck)
 		{
-			rewardHistory = REWARD_WIN * 10;
+			rewardHistory = REWARD_WIN * 50;
 			newReward = true;
 			endEpisode = true;
 		}
@@ -653,7 +653,7 @@ void ArmPlugin::OnUpdate(const common::UpdateInfo& updateInfo)
 							
 				if(DEBUG){printf("GROUND CONTACT, EOE\n");}
 
-				rewardHistory = REWARD_LOSS * 10;
+				rewardHistory = REWARD_LOSS * 20;
 				newReward     = true;
 				endEpisode    = true;
 			}
